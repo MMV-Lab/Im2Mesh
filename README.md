@@ -120,7 +120,7 @@ the only way to approximate a larger effective batch.
 Both input volumes and output meshes operate in a shared `[-1, 1]` coordinate
 space. Ground-truth mesh vertices are normalised at load time:
 
-$\mathbf{v}_\text{norm} = \frac{\mathbf{v} - \frac{1}{2}(\mathbf{v}_\text{min} + \mathbf{v}_\text{max})}{\frac{1}{2}\,\text{max}(\mathbf{v}_\text{max} - \mathbf{v}_\text{min})}$
+$$\mathbf{v}_\text{norm} = \frac{\mathbf{v} - \frac{1}{2}(\mathbf{v}_\text{min} + \mathbf{v}_\text{max})}{\frac{1}{2}\,\text{max}(\mathbf{v}_\text{max} - \mathbf{v}_\text{min})}$$
 
 This ensures that `grid_sample` coordinates computed from predicted vertex
 positions remain within the valid sampling range.
@@ -155,7 +155,7 @@ This eigenvalue is the spring constant in the harmonic oscillator analogy:
 low-degree modes (global shape) are soft; high-degree modes (wrinkles) are stiff.
 The mode energy regulariser:
 
-$\mathcal{L}_\text{mode} = \sum_{l=0}^{L} l(l+1) \, \|\mathbf{C}_l\|_F^2$
+$$\mathcal{L}_\text{mode} = \sum_{l=0}^{L} l(l+1) \, \|\mathbf{C}_l\|_F^2$$
 
 is the $H^1$ Sobolev seminorm on $S^2$ — it penalises high-frequency surface
 oscillations without forbidding them outright.
@@ -166,14 +166,14 @@ The Willmore functional $\mathcal{W} = \int_\mathcal{S} H^2\,dA$ (squared mean
 curvature integrated over area) is minimised by the round sphere. Discretely,
 using the cotangent Laplacian $\mathbf{L}_\text{cot}$ from PyTorch3D:
 
-$\mathcal{L}_\text{Willmore} = \|\mathbf{L}_\text{cot} \, \mathbf{V}\|_F^2$
+$$\mathcal{L}_\text{Willmore} = \|\mathbf{L}_\text{cot} \, \mathbf{V}\|_F^2$$
 
 since $(\mathbf{L}_\text{cot}\,\mathbf{V})_i \approx 2H_i\,\mathbf{n}_i$.
 
 
 ## Loss Functions
 
-$\mathcal{L}_\text{total} = w_\text{ch}\,\mathcal{L}_\text{Chamfer}+ w_\text{nc}\,\mathcal{L}_\text{normal}+ w_\text{el}\,\mathcal{L}_\text{edge}+ w_\text{ls}\,\mathcal{L}_\text{Laplacian}+ w_\text{W}\,\mathcal{L}_\text{Willmore}+ w_\text{me}\,\mathcal{L}_\text{mode}$
+$$\mathcal{L}_\text{total} = w_\text{ch}\,\mathcal{L}_\text{Chamfer}+ w_\text{nc}\,\mathcal{L}_\text{normal}+ w_\text{el}\,\mathcal{L}_\text{edge}+ w_\text{ls}\,\mathcal{L}_\text{Laplacian}+ w_\text{W}\,\mathcal{L}_\text{Willmore}+ w_\text{me}\,\mathcal{L}_\text{mode}$$
 
 | Term | Default weight | Description |
 |---|---|---|
