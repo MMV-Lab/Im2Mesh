@@ -1,0 +1,17 @@
+bioio
+pandas
+scikit-image
+numpy
+bioio-ome-tiff
+bioio-tifffile
+jupyterlab
+tqdm
+torch 
+torchvision
+cellpose
+vedo
+quilt3
+celldetection
+pyshtools
+napari[all]  
+napari-vedo-bridge

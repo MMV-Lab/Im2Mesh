@@ -1,0 +1,56 @@
+mode: inference
+
+data:
+  inference_input:
+    dir: "/path/to/data/inference"
+    data_type: .tif
+    reader_params:
+      dimension_order_out: "ZYX"
+      C: 0
+      T: 0
+  inference_output:
+    path: "/path/to/output/folder"
+
+  preprocess:
+    - module_name: monai.transforms
+      func_name: NormalizeIntensity
+      params:
+        channel_wise: True
+
+    - module_name: mmv_im2im.utils.custom_transforms
+      func_name: RecordShapeAndPad
+      params:
+        k: 16            
+        mode: "constant"
+        constant_value: 0.0
+
+  postprocess:
+    - module_name:  mmv_im2im.utils.custom_transforms
+      func_name: RemovePadFromPrediction
+      params:
+        k: 16
+        n_coord_dims: 3   
+
+model:
+  framework: ProbUnet
+  net:
+    module_name: mmv_im2im.models.nets.ProbUnet
+    func_name: ProbabilisticUNet
+    params:
+      in_channels: 1 # nuber of channels in the input IM
+      out_channels: 2503 # Vector size on this case [v1,...,vn]-> n
+      spatial_dims: 3 # 2d o 3d for convolutions
+      latent_dim: 10  
+      channels: [32, 64, 128, 256, 512]
+      strides: [1, 2, 2, 2, 2]
+      dropout: 0.2
+      task: "regression"
+  checkpoint: "path/to/weights"
+  model_extra:
+    cpu_only: False
+
+trainer:
+  verbose: True
+  params:
+    gpus: 1
+    precision: 16
