@@ -142,7 +142,7 @@ decoder is a single matrix multiply — fast and analytically differentiable.
 
 **Initialisation** via least-squares projection of the unit sphere:
 
-$\mathbf{C}_\text{init} = (\mathbf{Y}^\top \mathbf{Y})^{-1} \mathbf{Y}^\top \mathbf{V}_\text{sphere}$
+$$\mathbf{C}_\text{init} = (\mathbf{Y}^\top \mathbf{Y})^{-1} \mathbf{Y}^\top \mathbf{V}_\text{sphere}$$
 
 ## Harmonic Oscillator Analogy
 
