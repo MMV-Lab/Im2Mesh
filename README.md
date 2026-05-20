@@ -128,7 +128,7 @@ positions remain within the valid sampling range.
 Any smooth, star-shaped closed surface can be expressed over the unit sphere
 $S^2$ using real spherical harmonics $\{Y_{lm}(\theta, \phi)\}$:
 
-$\mathbf{r}(\theta, \phi) = \sum_{l=0}^{L} \sum_{m=-l}^{l} \mathbf{c}_{lm} \, Y_{lm}(\theta, \phi)$
+$$\mathbf{r}(\theta, \phi) = \sum_{l=0}^{L} \sum_{m=-l}^{l} \mathbf{c}_{lm} \, Y_{lm}(\theta, \phi)$$
 
 In matrix form for $N$ canonical icosphere vertices:
 
