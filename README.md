@@ -300,7 +300,7 @@ The output structure :
 For training the model run:
 
 ```bash
-python core/train_implicit_model.py   --data_path path/to/dataset   --val_split 0.2   --optional_id initial_training   --n_start_filters 32   --latent_dim 512   --max_sh_degree 8   --sphere_subdivisions 4   --refiner_steps 3   --refiner_layers 3   --refiner_hidden 64   --n_smooth 1   --lambd 0.5   --lr 0.0002   --n_epoch 3000   --accumulate_grad_batches 6   --ckpts_interval 10   --patience 90   --chamfer_scale 1.0   --normal_consistency_scale 0.05   --edge_length_scale 0.3   --laplacian_smoothing_scale 0.3   --willmore_scale 5e-05   --mode_energy_scale 0.0001   --num_workers 4
+python core/train_HarmoMeshNet.py   --data_path path/to/dataset   --val_split 0.2   --optional_id initial_training   --n_start_filters 32   --latent_dim 512   --max_sh_degree 8   --sphere_subdivisions 4   --refiner_steps 3   --refiner_layers 3   --refiner_hidden 64   --n_smooth 1   --lambd 0.5   --lr 0.0002   --n_epoch 3000   --accumulate_grad_batches 6   --ckpts_interval 10   --patience 90   --chamfer_scale 1.0   --normal_consistency_scale 0.05   --edge_length_scale 0.3   --laplacian_smoothing_scale 0.3   --willmore_scale 5e-05   --mode_energy_scale 0.0001   --num_workers 4
 ```
 
 The output structure :
