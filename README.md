@@ -94,8 +94,7 @@ Final Regression, A standard linear layer maps these refined harmonic features d
 
 An harmonic oscillator describes a system that moves periodically (like a pendulum or a vibrating string), which is mathematically represented by sine and cosine waves.This architecture translates that physical concept into deep learning by replacing traditional activation functions with a sinusoidal activation function.
 
-$x: y = \sin(\omega_0 \cdot (Wx + b))$
-
+$x: y = \sin(\omega_0 \cdot (Wx + b))$ [SIREN (Sitzmann et al. 2020)](https://arxiv.org/abs/2006.09661) 
 <img src="docs/img/hrf.PNG" width="800"/>
 
 <img src="docs/img/hrmodel.png" width="700"/>
